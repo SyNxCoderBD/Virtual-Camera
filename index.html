@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="authSection" class="auth-section">
+            <div id="authToggle" class="auth-toggle">
+                <button id="showLogin" class="active">Login</button>
+                <button id="showSignup">Sign Up</button>
+            </div>
+
+            <form id="loginForm">
+                <h2>Login</h2>
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            
+            <form id="signupForm" class="hidden">
+                <h2>Sign Up</h2>
+                <input type="email" id="signupEmail" placeholder="Email" required>
+                <input type="password" id="signupPassword" placeholder="Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+        <div id="mainContent" class="hidden">
+            <div id="desktopWarning" class="desktop-warning">
+                For the best experience, please use desktop mode on your device. Some features may not work perfectly otherwise.
+            </div>
+            <div class="header">
+                <div id="userDisplay" class="user-info"></div>
+                <button id="logoutBtn">Logout</button>
+            </div>
+            
+            <div class="camera-section">
+                <input type="file" id="fileInput" accept="image/*" capture="camera">
+                <button id="cameraButton">
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4z"/>
+                        <path d="M9 3L7.17 5H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2h-3.17L15 3H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z"/>
+                    </svg>
+                </button>
+            </div>
+            <div id="imageGrid" class="image-grid"></div>
+        </div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "firebase/app": "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js",
+                "firebase/database": "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js",
+                "firebase/auth": "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
+            }
+        }
+    </script>
+    <script src="config.js" type="module"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>
